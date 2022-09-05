@@ -7,24 +7,29 @@
  * You can return the answer in any order.
  */
 
-class Solution {
-
-    /**
-     * @param Integer[] $nums
-     * @param Integer $target
-     * @return Integer[]
-     */
-    function twoSum($nums, $target) {
-        foreach($nums as $key => $num) {
-            foreach($nums as $key2 => $num2) {
-                if($key !== $key2) {
-                    if($num+$num2 == $target) {
-                        $output = array();
-                        array_push($output, $key, $key2);
-                        return $output;
-                    }
+//Runtime 2694 ms
+function twoSum1($nums, $target) {
+    foreach($nums as $key => $num) {
+        foreach($nums as $key2 => $num2) {
+            if($key !== $key2) {
+                if($num+$num2 == $target) {
+                    $output = array();
+                    array_push($output, $key, $key2);
+                    return $output;
                 }
             }
+        }
+    }
+}
+
+// Another best solution. Runtime 145 ms
+function twoSum2($nums, $target) {
+    foreach($nums as $key => $num) {
+        unset($nums[$key]);
+        $nextKey = array_search(($target - $num), $nums);
+
+        if($nextKey) {
+            return [$key, $nextKey];
         }
     }
 }
