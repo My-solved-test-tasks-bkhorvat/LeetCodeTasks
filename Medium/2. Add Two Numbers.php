@@ -44,6 +44,7 @@ class Solution {
 
         $sum = str_split((bcadd($num1, $num2)));
 
+        $result = null;
         foreach($sum as $val){
             $result = new ListNode($val, $result);
         }
