@@ -21,8 +21,9 @@
  * }
  */
 
-function objToArr($obj) {
-    while($obj) {
+function objToArr($obj)
+{
+    while ($obj) {
         $arr[] = $obj->val;
         $obj = $obj->next;
     }
@@ -35,7 +36,8 @@ class Solution {
      * @param ListNode $l2
      * @return ListNode
      */
-    function addTwoNumbers($l1, $l2) {
+    public function addTwoNumbers($l1, $l2)
+    {
         $arr1 = objToArr($l1);
         $arr2 = objToArr($l2);
 
@@ -45,10 +47,9 @@ class Solution {
         $sum = str_split((bcadd($num1, $num2)));
 
         $result = null;
-        foreach($sum as $val){
+        foreach ($sum as $val) {
             $result = new ListNode($val, $result);
         }
-
         return $result;
     }
 }
