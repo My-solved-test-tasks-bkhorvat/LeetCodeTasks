@@ -1,17 +1,19 @@
 <?php
 
-class Solution {
+class Solution
+{
 
     /**
      * @param String $s
      * @return Boolean
      */
-    function isValid($s) {
+    function isValid($s)
+    {
         if (strlen($s) % 2) {
             return false;
         }
 
-        while($s) {
+        while ($s) {
             $s = str_replace("()", "", $s);
             $s = str_replace("[]", "", $s);
             $s = str_replace("{}", "", $s);
@@ -22,7 +24,7 @@ class Solution {
             $cheked = $s;
 
         }
-        var_dump($s);
+
         return true;
     }
 }
